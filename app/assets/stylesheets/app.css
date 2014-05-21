@@ -1,0 +1,15 @@
+.logo { 
+   font-family: 'Megrim', cursive; 
+   font-weight: 900;
+   font-size: 35px;
+}
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: .01s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}

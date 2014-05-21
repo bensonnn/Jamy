@@ -13,35 +13,98 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require angular
+//= require angular-resource
 //= require_tree .
 
-Jamy = Ember.Application.create();
-Jamy.ApplicationAdapter = DS.FixtureAdapter.extend({});
+(function() {
+	var app = angular.module('Jamy', ['AppPlayer']);
+	app.directive('latest', ['$http', function($http) {
+		return {
+			restrict: 'E',
+			templateUrl: 'latest.html',
+			controller: function() {
+				var latest = this;
+				
+				$http.get('/api/v1/latest.json').success(function(data){
+					latest.tracks = data['tracks']
+				});
 
-Jamy.Router.map(function() {
-	
-})
-
-Jamy.ApplicationRoute = Ember.Route.extend({
-	model: function() {
-			return this.store.findAll('track')
-	}
-})
+			},
+			controllerAs : "latest"
+		};
 
 
+	}])
+})();
 
-// Jamy.Store = DS.Store.extend({
+(function() {
+	var app = angular.module('AppPlayer', ['SoundCloudObject']);
+	app.controller('Player', function($scope) {
+		var player = this;
+		player.currentTrack = null;
+		player.currentObject = null;
+		
+		this.pause = function(track) {
+			track.playing = false;
+			player.currentObject.pause();
+		}
 
-// })
+		this.resume = function(track) {
+			track.playing = true;
+			player.currentObject.play();
+		}
 
-//# Override the default adapter with the `DS.ActiveModelAdapter` which
-//# is built to work nicely with the ActiveModel::Serializers gem.
-//Jamy.ApplicationAdapter = DS.ActiveModelAdapter.extend({
 
-//create some fixtures
+		this.play = function(track) {
+			track.loading = true;
+			track.playing = true;
+			track.comments = "ehllo"
+			// $scope.$watch('comments', function(old) {
+			// 	console.log(old)
+			// });
+				player.currentTrack = track;
+				SC.stream("/tracks/" + track.track_id + "", 
+				{
+  				ontimedcomments: function(comments){
+    			track.comments = comments[0].body
+    			$scope.$apply() }
+  			}  
+  			,function(sound){
+					player.currentObject = sound;
+					player.currentObject.play();
+					track.loading = false;
+					$scope.$apply();
+				});
+		}
 
-Jamy.Track = DS.Model.extend({
-  title: DS.attr( 'string' ),
-  trackId: DS.attr('number')
-});
+		this.stopAllPlaying = function() {
+			if (player.currentTrack)
+				player.currentObject.pause();
+			if (player.currentTrack)
+				player.currentTrack.playing = false;
+		}
+
+		this.toggle = function(track) {
+			if (player.currentTrack == track && track.playing) {
+				this.pause(track);
+			} else if (player.currentTrack == track) {
+				this.resume(track);
+			} else {
+				this.stopAllPlaying();
+				this.play(track);
+			}
+		};
+	})
+})();
+
+
+(function() {
+	var app = angular.module('SoundCloudObject', []);
+	SC.initialize({
+    client_id: "54124d08066b77ab0662dc6727e7bf39",
+    redirect_uri: "#",
+	});
+})();
+
 

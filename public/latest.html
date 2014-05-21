@@ -1,0 +1,17 @@
+<div ng-controller='Player as player'>
+<li class='list-unstyled' ng-repeat="track in latest.tracks">
+	
+	<img ng-src="{{track.artwork_url}}">
+	
+	{{track.title}} 
+	
+	<i ng-click='player.toggle(track)' ng-hide="track.playing" class='fa fa-2x fa-play'></i>
+
+	<i ng-click='player.toggle(track)' ng-show="track.playing" class='fa fa-2x fa-pause'></i>
+
+	<img class="loading" ng-show="track.loading" src='/assets/loading.gif' width='30'/>
+
+	<span ng-animate=" 'animate' " ng-bind='track.comments'></span>
+
+</li>
+</div>

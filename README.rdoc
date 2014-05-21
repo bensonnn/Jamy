@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Jamy, a curated mp3 blog aggregator.  
 
-Things you may want to cover:
+This app is using Redis with Sidekiq and a scheduling gem called Whenever to pull in super fresh tracks.  
 
-* Ruby version
+To update the crontab with Whenever, run
 
-* System dependencies
+```
+bundle exec whenever --update-crontab
+```
 
-* Configuration
+To view your crontab, run
 
-* Database creation
+```
+crontab -l
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+and to clear the crontab, run
+```
+crontab -r
+```
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
