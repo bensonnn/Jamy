@@ -1,4 +1,4 @@
-**README
+#README
 
 Welcome to Jamy, a curated mp3 blog aggregator.  
 
@@ -20,6 +20,8 @@ and to clear the crontab, run
 ```
 crontab -r
 ```
+
+<a href="http://imgur.com/H1gGX6w"><img src="http://i.imgur.com/H1gGX6w.png" title="Hosted by imgur.com" /></a>
 
 
 
