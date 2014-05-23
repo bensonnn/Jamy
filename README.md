@@ -1,4 +1,4 @@
-== README
+**README
 
 Welcome to Jamy, a curated mp3 blog aggregator.  
 
