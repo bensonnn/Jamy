@@ -4,6 +4,7 @@ module Api
 			respond_to :json
 			def latest
 				respond_with([{
+											 artist: "RAC",
 											 title:"Tear you down",
 											 track_id: '136603251',
 											 playing: false,
@@ -11,6 +12,7 @@ module Api
 											 artwork_url: 'http://i1.sndcdn.com/artworks-000071832943-6ayvyt-large.jpg?30a2558'
 											},
 											{
+											 artist: "RAC",
 											 title:"Let go",
 											 track_id: '106176078',
 											 playing: false,

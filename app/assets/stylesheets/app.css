@@ -1,15 +1,56 @@
+body {
+	color: #444;
+}
+p {
+	margin: 0;
+}
 .logo { 
    font-family: 'Megrim', cursive; 
    font-weight: 900;
    font-size: 35px;
 }
+.track-container {
+	min-width: 380px;
 
-.animate-enter {
-	-webkit-transition: 1s linear all; /* Chrome */
-	transition: .01s linear all;
-	opacity: 0;
+	margin: 15px 5px;
+	border-bottom: 1px solid #dddddd;
 }
- 
-.animate-enter.animate-enter-active {
-	opacity: 1;
+.artist {
+	font-size: 30px;
+	overflow: hidden;
+}
+.title {
+	font-size: 30px;
+	color: #E99002;
+}
+.comments {
+	width: 300px!important;
+	height: 20px;
+	color: #777;
+	overflow: hidden!important;
+	margin-bottom: 10px;
+}
+.loading {
+	margin-bottom: 14px;
+	width: 20px;
+}
+.track-info {
+	margin-left: 60px;
+}
+.page-header {
+	margin: 42px 0 0 0;
+	padding-bottom: 0;
+}
+.dropdown-toggle {
+	cursor: pointer;
+}
+
+now-playing {
+	color: blue;
+	font-size: 30px;
+	position: fixed;
+	top: 0px;
+	right: 50%;
+	z-index: 10000;
+
 }

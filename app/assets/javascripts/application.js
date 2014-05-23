@@ -12,91 +12,44 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require angular
 //= require angular-resource
+//= require angular-route
 //= require_tree .
 
 (function() {
-	var app = angular.module('Jamy', ['AppPlayer']);
-	app.directive('latest', ['$http', function($http) {
-		return {
-			restrict: 'E',
-			templateUrl: 'latest.html',
-			controller: function() {
-				var latest = this;
-				
-				$http.get('/api/v1/latest.json').success(function(data){
-					latest.tracks = data['tracks']
-				});
-
-			},
-			controllerAs : "latest"
-		};
-
-
-	}])
+	var app = angular.module('Jamy', ['ngRoute','LatestCtrl', 'NowPlaying']);
+	app.config(function ($routeProvider) {
+	  $routeProvider
+	  .when('/', {
+	    templateUrl: '../assets/track.html',
+	    controller: 'LatestCtrl'
+	  })
+	  .when('/latest/blogged', {
+	    templateUrl: '../assets/track.html',
+	    controller: 'LatestCtrl'
+	  })
+	  .when('/latest/released', {
+	    templateUrl: '../assets/track.html',
+	    controller: 'LatestCtrl'
+	  })
+	  .when('/about', {
+	    templateUrl: '../assets/about.html',
+	  })
+	  .when('/free', {
+	    templateUrl: '../assets/free_stuff.html',
+	  })
+	  .otherwise({
+	    redirectTo: '/'
+	  });
+	});
 })();
 
-(function() {
-	var app = angular.module('AppPlayer', ['SoundCloudObject']);
-	app.controller('Player', function($scope) {
-		var player = this;
-		player.currentTrack = null;
-		player.currentObject = null;
-		
-		this.pause = function(track) {
-			track.playing = false;
-			player.currentObject.pause();
-		}
-
-		this.resume = function(track) {
-			track.playing = true;
-			player.currentObject.play();
-		}
 
 
-		this.play = function(track) {
-			track.loading = true;
-			track.playing = true;
-			track.comments = "ehllo"
-			// $scope.$watch('comments', function(old) {
-			// 	console.log(old)
-			// });
-				player.currentTrack = track;
-				SC.stream("/tracks/" + track.track_id + "", 
-				{
-  				ontimedcomments: function(comments){
-    			track.comments = comments[0].body
-    			$scope.$apply() }
-  			}  
-  			,function(sound){
-					player.currentObject = sound;
-					player.currentObject.play();
-					track.loading = false;
-					$scope.$apply();
-				});
-		}
 
-		this.stopAllPlaying = function() {
-			if (player.currentTrack)
-				player.currentObject.pause();
-			if (player.currentTrack)
-				player.currentTrack.playing = false;
-		}
 
-		this.toggle = function(track) {
-			if (player.currentTrack == track && track.playing) {
-				this.pause(track);
-			} else if (player.currentTrack == track) {
-				this.resume(track);
-			} else {
-				this.stopAllPlaying();
-				this.play(track);
-			}
-		};
-	})
-})();
 
 
 (function() {

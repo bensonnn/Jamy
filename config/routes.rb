@@ -1,6 +1,5 @@
 Jamy::Application.routes.draw do
-  root :to => 'assets#index'
-  get "assets/index"
+  root :to => 'static_pages#index'
 
   namespace :api, defaults: {format: :json, root: :false} do 
     namespace :v1 do 
