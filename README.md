@@ -1,5 +1,5 @@
 <img src="http://i.imgur.com/H1gGX6w.png" title="Hosted by imgur.com" />
-<img src="http://imgur.com/CbikJVX" title="Hosted by imgur.com" />
+<img src="http://i.imgur.com/CbikJVX.png" title="Hosted by imgur.com" />
 
 Welcome to Jamy, a curated mp3 blog aggregator.  
 
