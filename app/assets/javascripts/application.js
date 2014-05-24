@@ -19,7 +19,7 @@
 //= require_tree .
 
 (function() {
-	var app = angular.module('Jamy', ['ngRoute','LatestCtrl', 'NowPlaying']);
+	var app = angular.module('Jamy', ['ngRoute','LatestCtrl']);
 	app.config(function ($routeProvider) {
 	  $routeProvider
 	  .when('/', {

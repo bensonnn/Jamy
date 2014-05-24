@@ -4,7 +4,7 @@
     return {
       restrict: 'E',
       templateUrl: '../assets/now_playing.html',
-      controller: 'Player'
+      // service: 'player'
     };
   });
 })();

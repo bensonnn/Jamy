@@ -47,3 +47,5 @@ gem "active_model_serializers"
 gem "soundcloud"
 gem 'whenever', :require => false
 gem 'angularjs-rails'
+gem 'sidekiq'
+gem 'nokogiri'

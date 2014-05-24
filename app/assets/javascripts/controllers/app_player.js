@@ -1,7 +1,7 @@
 (function() {
 	var app = angular.module('AppPlayer', ['SoundCloudObject']);
 	
-	app.controller('Player', function($scope) {
+	app.service('player', function() {
 		var player = this;
 		player.currentTrack = null;
 		player.currentObject = null;
@@ -25,14 +25,15 @@
 			{
 				ontimedcomments: function(comments){
   			track.comments = comments[0].body
-  			$scope.$apply() }
+  			// $scope.$apply() 
+  		}
 			}  
 			,function(sound){
 				track.playing = true;
 				player.currentObject = sound;
 				player.currentObject.play();
 				track.loading = false;
-				$scope.$apply();
+				// $scope.$apply();
 			});
 		}
 

@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519034826) do
+ActiveRecord::Schema.define(version: 20140523033519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "regex"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tracks", force: true do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.string   "genre"
+    t.text     "src"
+    t.string   "track_id"
+    t.string   "artwork_url"
+    t.string   "uploaded"
+    t.string   "permalink_url"
+    t.text     "purchase_url"
+    t.integer  "blog_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
