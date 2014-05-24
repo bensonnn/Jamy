@@ -31,6 +31,13 @@ class Track < ActiveRecord::Base
     self.src.match(/#{regex}/) unless src.nil?
   end
 
+  def self.latest_blogged limit, page
+    Track.order(created_at: :desc).limit(limit).offset(page * limit - limit)
+  end
+
+  def self.latest_released limit, page
+    Track.order(uploaded: :desc).limit(limit).offset(page * limit - limit)
+  end
 
 
 end

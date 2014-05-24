@@ -49,3 +49,4 @@ gem 'whenever', :require => false
 gem 'angularjs-rails'
 gem 'sidekiq'
 gem 'nokogiri'
+gem "active_model_serializers"

@@ -3,7 +3,8 @@ Jamy::Application.routes.draw do
 
   namespace :api, defaults: {format: :json, root: :false} do 
     namespace :v1 do 
-      get "/latest" => 'tracks#latest'
+      get "/latest_released"  => 'tracks#latest_released'
+      get "/latest_blogged"   => 'tracks#latest_blogged'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
