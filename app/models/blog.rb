@@ -2,6 +2,12 @@ class Blog < ActiveRecord::Base
   has_many :tracks
   validates :url, :regex, presence: true
 
+  include Sidekiq::Worker
+
+  def perform
+    Blog.fetch_tracks!
+  end
+
   def self.fetch_tracks!
     blogs = Blog.all
     blogs.each do |blog|
