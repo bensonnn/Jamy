@@ -34,6 +34,9 @@
 	    templateUrl: '../assets/track.html',
 	    controller: 'LatestCtrl'
 	  })
+	  .when('/popular', {
+	    templateUrl: '../assets/popular.html',
+	  })
 	  .when('/about', {
 	    templateUrl: '../assets/about.html',
 	  })

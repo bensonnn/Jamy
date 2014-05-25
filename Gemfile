@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -50,3 +50,7 @@ gem 'angularjs-rails'
 gem 'sidekiq'
 gem 'nokogiri'
 gem "active_model_serializers"
+
+group :production do 
+  gem 'rails_12factor'
+end
