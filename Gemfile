@@ -43,7 +43,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "active_model_serializers"
 gem "soundcloud"
 gem 'whenever', :require => false
 gem 'angularjs-rails'
@@ -52,6 +51,14 @@ gem 'nokogiri'
 gem "active_model_serializers"
 gem "redis"
 
+group :test do 
+  gem 'shoulda-matchers'
+end
+
 group :production do 
   gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
 end
