@@ -15,11 +15,3 @@ class CreateTracks < ActiveRecord::Migration
     end
   end
 end
-
-# artwork_url
-# created_at
-# permalink_url
-# purchase_url
-# genre
-# user.username
-# title
