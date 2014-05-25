@@ -12,6 +12,7 @@ class Track < ActiveRecord::Base
       self.title          = track.title
       self.artist         = track.user.username
       self.genre          = track.genre
+      self.playcount      = track.playback_count
       self.purchase_url   = track.purchase_url
       self.permalink_url  = track.permalink_url
       self.uploaded       = track.created_at
