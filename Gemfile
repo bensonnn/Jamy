@@ -50,6 +50,7 @@ gem 'angularjs-rails'
 gem 'sidekiq'
 gem 'nokogiri'
 gem "active_model_serializers"
+gem "redis"
 
 group :production do 
   gem 'rails_12factor'
