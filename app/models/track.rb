@@ -33,12 +33,15 @@ class Track < ActiveRecord::Base
   end
 
   def self.latest_blogged limit, page
-    Track.order(created_at: :desc).limit(limit).offset(page * limit - limit)
+    order(created_at: :desc).limit(limit).offset(page * limit - limit)
   end
 
   def self.latest_released limit, page
-    Track.order(uploaded: :desc).limit(limit).offset(page * limit - limit)
+    order(uploaded: :desc).limit(limit).offset(page * limit - limit)
   end
 
+  def self.popular limit, page
+    order(playcount: :desc).limit(limit).offset(page * limit - limit)
+  end
 
 end
