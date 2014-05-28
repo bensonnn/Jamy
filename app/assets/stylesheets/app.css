@@ -4,23 +4,29 @@ body {
 p {
 	margin: 0;
 }
+h1 span {
+	color: #E99002;
+}
+
+.orange {
+	color: #E99002;
+}
 .logo { 
    font-family: 'Megrim', cursive; 
    font-weight: 900;
    font-size: 35px;
 }
 .track-container {
-	min-width: 380px;
-
+	min-width: 340px;
 	margin: 15px 5px;
 	border-bottom: 1px solid #dddddd;
 }
 .artist {
-	font-size: 30px;
+	font-size: 22px;
 	overflow: hidden;
 }
 .title {
-	font-size: 30px;
+	font-size: 22px;
 	color: #E99002;
 }
 .comments {
