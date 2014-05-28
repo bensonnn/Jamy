@@ -1,0 +1,32 @@
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 ng-bind-html='trackCtrl.name'></h1>
+      {{player.toggle()}}
+    </div>
+  </div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<li class='list-unstyled' ng-repeat="track in trackCtrl.tracks">
+			<div class="row track-container">
+				<img ng-src="{{track.artwork_url || '<%= asset_path 'jamy.png' %>'}}" class='pull-left' width='50'>
+				<div class='track-info'>
+					<p>
+					<span class="artist">{{track.artist}}</span>
+					<span class="title">{{track.title}}</span> 
+					
+					<i ng-click='player.toggle(track)' ng-hide="track.playing" class='pull-right fa fa-2x fa-play'></i>
+
+					<i ng-click='player.toggle(track)' ng-show="track.playing" class='fa fa-2x fa-pause'></i>
+
+					<img class="loading" ng-show="track.loading" src='/assets/loading.gif' width='30'/>
+
+					</p>
+
+					<p class="comments">{{track.comments}}</p>
+				</div>
+			</div>
+		</li>
+	</div>
+</div>
