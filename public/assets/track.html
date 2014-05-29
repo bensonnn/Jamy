@@ -9,7 +9,7 @@
 	<div class="col-xs-12">
 		<li class='list-unstyled' ng-repeat="track in trackCtrl.tracks">
 			<div class="row track-container">
-				<img ng-src="{{track.artwork_url || '<%= asset_path 'jamy.png' %>'}}" class='pull-left' width='50'>
+				<img ng-src="{{track.artwork_url || '../assets/jamy.png' }}" class='pull-left' width='50'>
 				<div class='track-info'>
 					<p>
 					<span class="artist">{{track.artist}}</span>
