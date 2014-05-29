@@ -1,0 +1,31 @@
+(function() {
+  var app = angular.module('JamyApp', ['ngRoute','JamyApp.controllers']);
+
+  app.config(function ($routeProvider) {
+    $routeProvider
+     .when('/latest/blogged', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'BloggedCtrl',
+      controllerAs: 'trackCtrl'
+    })
+     .when('/latest/released', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'ReleasedCtrl',
+      controllerAs: 'trackCtrl'
+    })
+    .when('/popular', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'PopularCtrl',
+      controllerAs: 'trackCtrl'
+    })
+    .when('/about', {
+      templateUrl: '<%= asset_path 'about.html' %>',
+    })
+    .when('/free', {
+      templateUrl: '<%= asset_path 'free_stuff.html' %>',
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+  });
+})();
