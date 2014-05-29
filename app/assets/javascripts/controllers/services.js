@@ -6,69 +6,48 @@
     redirect_uri: "#",
   });
 
-  app.factory('player', function() {
-    return {
-      this.toggle = "hello"
+  app.service('player', function($rootScope) {
+    var p = this;
+    this.currentTrackId = null;
+    this.soundObject = null;
+    this.playing = false;
+
+    var resume = function() {
+      p.soundObject.play();
+      p.playing = true;
+    };
+
+    var pause = function() {
+      p.soundObject.pause();
+      p.playing = false;
+    };
+
+    var play = function(track) {
+        p.soundObject ? p.soundObject.pause() : null;
+        track.loading = true;
+        SC.stream("/tracks/" + track.track_id,
+          {
+            ontimedcomments: function(comments){
+              track.comments = comments[0].body
+              $rootScope.$apply() 
+            }
+          }, function(sound){
+            p.currentTrackId = track.track_id;
+            p.soundObject = sound;
+            p.playing = true;
+            track.loading = false;
+            p.soundObject.play();
+            $rootScope.$apply();
+        });
+      };
+
+    this.toggle = function(track) {
+      if (this.currentTrackId == track.track_id && this.playing)
+        pause();
+      else if (this.currentTrackId == track.track_id) 
+        resume();
+      else
+        play(track);
     }
-
   });
-
-
-	
-
 })();
-
-//  app.service('player', function() {
-//    var player = this;
-//    player.currentTrack = null;
-//    player.currentObject = null;
-    
-//    this.pause = function(track) {
-//      track.playing = false;
-//      player.currentObject.pause();
-//    }
-
-//    this.resume = function(track) {
-//      track.playing = true;
-//      player.currentObject.play();
-//    }
-
-
-//    this.play = function(track) {
-//      track.loading = true;
-//      track.comments = null
-//      player.currentTrack = track;
-//      SC.stream("/tracks/" + track.track_id + "", 
-//      {
-//        ontimedcomments: function(comments){
-//        track.comments = comments[0].body
-//        // $scope.$apply() 
-//      }
-//      }  
-//      ,function(sound){
-//        track.playing = true;
-//        player.currentObject = sound;
-//        player.currentObject.play();
-//        track.loading = false;
-//        // $scope.$apply();
-//      });
-//    }
-
-//    this.stopAllPlaying = function() {
-//      if (player.currentTrack)
-//        player.currentObject.pause();
-//      if (player.currentTrack)
-//        player.currentTrack.playing = false;
-//    }
-
-//    this.toggle = function(track) {
-//      if (player.currentTrack == track && track.playing) {
-//        this.pause(track);
-//      } else if (player.currentTrack == track) {
-//        this.resume(track);
-//      } else {
-//        this.stopAllPlaying();
-//        this.play(track);
-//      }
-//    };
-//  })
