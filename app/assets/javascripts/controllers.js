@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('JamyApp.controllers', ['ngSanitize','JamyApp.services']);
+	var app = angular.module('JamyApp.controllers', ['ngSanitize','JamyApp.services','ngTouch']);
 
   app.controller('BloggedCtrl', ['$http','$route','player', function($http,$route, player) {
     var latest = this;
