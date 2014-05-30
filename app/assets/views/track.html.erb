@@ -1,13 +1,13 @@
 <div class="page-header" id="banner">
   <div class="row">
     <div class="col-lg-6">
-      <h1 ng-bind-html='trackCtrl.name'></h1>
+      <h1 ng-bind-html='name'></h1>
     </div>
   </div>
 </div>
 <div class="row">
 	<div class="col-xs-12">
-		<li class='list-unstyled' ng-repeat="track in trackCtrl.tracks">
+		<li class='list-unstyled' ng-repeat="track in tracks">
 			<div class="row track-container">
 				<img ng-src="{{track.artwork_url || '<%= asset_path 'jamy.png' %>'}}" class='pull-left' width='50'>
 				<div class='track-info'>
@@ -15,9 +15,9 @@
 					<span class="artist">{{track.artist}}</span>
 					<span class="title">{{track.title}}</span> 
 					
-					<i ng-click='trackCtrl.player.toggle(track)' ng-hide="trackCtrl.player.currentTrackId == track.track_id" class='pull-right fa fa-2x fa-play'></i>
+					<i ng-click='player.toggle(track)' ng-hide="player.currentTrackId == track.track_id" class='pull-right fa fa-2x fa-play'></i>
 
-					<i ng-click='trackCtrl.player.toggle(track)' ng-show="trackCtrl.player.currentTrackId == track.track_id" class='pull-right fa fa-2x fa-pause'></i>
+					<i ng-click='player.toggle(track)' ng-show="player.currentTrackId == track.track_id" class='pull-right fa fa-2x fa-pause'></i>
 
 					<img class="loading pull-right" ng-show="track.loading" src='/assets/loading.gif' width='30'/>
 
