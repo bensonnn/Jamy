@@ -37,4 +37,10 @@
     });
   }])
 
+  app.controller('ActiveTabCtrl', function($location,$scope) {
+    $scope.$on('$routeChangeSuccess', function() {
+      $scope.tab = $location.path();
+    })
+  })
+  
 })();

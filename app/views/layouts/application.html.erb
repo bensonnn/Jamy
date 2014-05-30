@@ -24,22 +24,22 @@
         </button>
       </div>
       <div class="navbar-collapse collapse navbar-right" id="navbar-main">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" ng-controller='ActiveTabCtrl as tab'>
 
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" id="themes">Latest<span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="themes">
-              <li><a href="#/latest/blogged">Blogged</a></li>
-              <li><a href="#/latest/released">Released</a></li>
+              <li ng-class='{active: tab == "/latest/blogged"}'><a href="#/latest/blogged">Blogged</a></li>
+              <li ng-class='{active: tab == "/latest/released"}'><a href="#/latest/released">Released</a></li>
             </ul>
           </li>
-          <li>
+          <li ng-class='{active: tab == "/popular"}'>
             <a href="#/popular">Popular</a>
           </li>
-          <li>
+          <li ng-class='{active: tab == "/free"}'>
             <a href="#/free">Free Stuff</a>
           </li>
-          <li>
+          <li ng-class='{active: tab == "/about"}'>
             <a href="#/about">About</a>
           </li>
         </ul>
