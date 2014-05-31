@@ -3,6 +3,18 @@
 
   app.factory('trackObj', function($rootScope) {
 
+    //need to do something about this
+    $rootScope.safeApply = function(fn) {
+      var phase = this.$root.$$phase;
+      if(phase == '$apply' || phase == '$digest') {
+        if(fn && (typeof(fn) === 'function')) {
+          fn();
+        }
+      } else {
+        this.$apply(fn);
+      }
+    };
+
     return function(track) {
       var t = this
       t.id = track.track_id;
@@ -27,12 +39,13 @@
             t.sound.play();
             t.loading = false;
             t.isplaying = true;
+            $rootScope.safeApply();
           })
 
       }
 
       t.pause = function() {
-        t.sound.pause();
+        if (t.sound) t.sound.pause();
         t.isplaying = false;
       }
 
