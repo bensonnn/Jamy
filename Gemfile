@@ -53,6 +53,7 @@ gem 'sidekiq'
 gem 'nokogiri'
 gem "active_model_serializers"
 gem "redis"
+gem "underscore-rails"
 
 group :test do 
   gem 'shoulda-matchers'
