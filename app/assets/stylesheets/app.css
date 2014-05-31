@@ -68,9 +68,3 @@ now-playing {
 	padding-top: 5px;
 	cursor: pointer;
 }
-
-@media (max-width: @screen-sm-max) {
-	.track-info {
-		display: none;
-	}
-}
