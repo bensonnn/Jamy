@@ -9,7 +9,7 @@
 		<li class='list-unstyled' ng-repeat="track in tracks">
 			<div class="row track">
         <div class='col-xs-1 hidden-xs'>
-  				<img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || '<%= asset_path 'jamy.png' %>'}}" class='pull-left' width='60'>
+  				<img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || '<%= asset_path 'jamy.png' %>'}}" class='pull-left' width='60' height="60">
           <img ng-show="currentTrack.loading && currentTrack.id == track.track_id" class="loading" ng-show="currentTrack.loading && currentTrack.id == track.track_id" src='/assets/loading.gif' width='60' height='60' />
         </div>
 				<div class='col-xs-9 track-info'>
@@ -19,7 +19,7 @@
           <p class="comments" ng-show="currentTrack.id == track.track_id">{{currentTrack.comments}}</p>
 				</div>
         <div class="col-xs-2">
-					<i ng-click='play(track)' ng-hide="currentTrack.isplaying && currentTrack.id == track.track_id" class='pull-right fa fa-3x fa-play'></i>
+					<i ng-click='play(track);' ng-hide="currentTrack.isplaying && currentTrack.id == track.track_id" class='pull-right fa fa-3x fa-play'></i>
 
 					<i ng-click='pause(track)' ng-show="currentTrack.isplaying && currentTrack.id == track.track_id" class='pull-right fa fa-3x fa-pause'></i>
 

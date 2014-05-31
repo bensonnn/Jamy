@@ -45,7 +45,10 @@
       }
 
       t.pause = function() {
-        if (t.sound) t.sound.pause();
+        //sometimes, the SM2 object is not ready, watch for it, then pause it
+        $rootScope.$watch(function(){return t.sound}, function(a,b){
+          if (a) a.pause();
+        })
         t.isplaying = false;
       }
 
