@@ -1,16 +1,12 @@
 (function() {
-	var app = angular.module('JamyApp.services', []);
+	var app = angular.module('JamyApp.services', ['JamyApp.initializers','JamyApp.factories']);
 
-  SC.initialize({
-    client_id: "54124d08066b77ab0662dc6727e7bf39",
-    redirect_uri: "#",
-  });
-
-  app.service('player', function($rootScope) {
-    var p = this;
-    this.currentTrackId = null;
-    this.soundObject = null;
-    this.playing = false;
+  app.service('player', function($rootScope,trackObj) {
+    
+    var p = $rootScope;
+    p.currentTrackId = null;
+    p.soundObject = null;
+    p.playing = false;
 
     var resume = function() {
       p.soundObject.play();
