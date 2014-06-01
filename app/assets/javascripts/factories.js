@@ -36,7 +36,11 @@
                   
           function(sound) {
             t.sound = sound;
-            t.sound.play();
+            t.sound.play({
+              onfinish: function(){
+                $rootScope.next();
+              }
+            });
             t.loading = false;
             t.isplaying = true;
             $rootScope.safeApply();
@@ -53,9 +57,10 @@
       }
 
       t.resume = function() {
-        t.sound.resume();
+        if (t.sound) t.sound.resume();
         t.isplaying = true;
       }
+
     }
   })
 
