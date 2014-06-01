@@ -68,3 +68,9 @@ now-playing {
 	padding-top: 5px;
 	cursor: pointer;
 }
+.fa-play:hover, .fa-pause:hover {
+	color: #E99002;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }
