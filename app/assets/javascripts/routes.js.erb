@@ -3,7 +3,12 @@
 
   app.config(function ($routeProvider) {
     $routeProvider
-     .when('/latest/blogged', {
+     .when('/latest/blogged/', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'BloggedCtrl',
+      controllerAs: 'trackCtrl'
+    })
+     .when('/latest/blogged/page/:page', {
       templateUrl: '<%= asset_path 'track.html' %>',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
@@ -13,7 +18,17 @@
       controller: 'ReleasedCtrl',
       controllerAs: 'trackCtrl'
     })
+     .when('/latest/released/page/:page', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'ReleasedCtrl',
+      controllerAs: 'trackCtrl'
+    })
     .when('/popular', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'PopularCtrl',
+      controllerAs: 'trackCtrl'
+    })
+    .when('/popular/page/:page', {
       templateUrl: '<%= asset_path 'track.html' %>',
       controller: 'PopularCtrl',
       controllerAs: 'trackCtrl'
