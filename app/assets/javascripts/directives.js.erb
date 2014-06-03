@@ -1,0 +1,12 @@
+(function() {
+  var app = angular.module('JamyApp.directives', ['ngSanitize','JamyApp.services','ngTouch']);
+
+  app.directive('playerControls', function() {
+    return {
+      restrict: "E",
+      templateUrl: '<%= asset_path 'player_controls.html' %>'
+    };
+  });
+
+
+})();

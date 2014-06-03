@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('JamyApp.controllers', ['ngSanitize','JamyApp.services','ngTouch']);
+	var app = angular.module('JamyApp.controllers', ['ngSanitize','JamyApp.services','JamyApp.directives','ngTouch']);
 
   app.controller('BloggedCtrl', ['$http','$route','player','$scope','$rootScope','$routeParams', function($http,$route,player,$scope,$rootScope,$routeParams) {
     $scope.name = "Latest<span>Blogged</span>"
