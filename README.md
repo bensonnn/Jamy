@@ -1,7 +1,7 @@
-<img src="http://i.imgur.com/H1gGX6w.png" title="Hosted by imgur.com" />
-<img src="http://i.imgur.com/CbikJVX.png" title="Hosted by imgur.com" />
+#Jamy
+<img src="http://i.imgur.com/M7QCUKb.jpg" title="Hosted by imgur.com" />
 
-###Welcome to Jamy, a curated mp3 blog aggregator.  
+### Jamy is a curated mp3 blog aggregator.  
 
 This app is using Redis with Sidekiq and a scheduling gem called Whenever to pull in super fresh tracks.  
 
