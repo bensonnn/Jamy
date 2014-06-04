@@ -3,15 +3,15 @@ module Api
 		class TracksController < ApplicationController
 
 			def latest_blogged
-				render json: Track.latest_blogged(limit = 30, params["page"].to_i), root: false
+				render json: Track.latest_blogged(limit = 10, params["page"].to_i), root: false
 			end
 
 			def latest_released
-				render json: Track.latest_released(limit = 30, params["page"].to_i), root: false
+				render json: Track.latest_released(limit = 10, params["page"].to_i), root: false
 			end
 
 			def popular
-				render json: Track.popular(limit = 30, params["page"].to_i), root: false
+				render json: Track.popular(limit = 10, params["page"].to_i), root: false
 			end
 			
 		end
