@@ -5,7 +5,7 @@
     var p = $rootScope;
     p.currentTrack = null;
     p.tracks = []
-
+    
     p.resume = function() {
       p.currentTrack.resume();
     };
