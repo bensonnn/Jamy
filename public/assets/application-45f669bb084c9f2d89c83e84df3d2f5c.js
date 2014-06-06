@@ -36446,32 +36446,32 @@ Jamy.helpers = {
   app.config(function ($routeProvider) {
     $routeProvider
      .when('/latest/blogged/', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
      .when('/latest/blogged/page/:page', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
      .when('/latest/released', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'ReleasedCtrl',
       controllerAs: 'trackCtrl'
     })
      .when('/latest/released/page/:page', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'ReleasedCtrl',
       controllerAs: 'trackCtrl'
     })
     .when('/popular', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'PopularCtrl',
       controllerAs: 'trackCtrl'
     })
     .when('/popular/page/:page', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'PopularCtrl',
       controllerAs: 'trackCtrl'
     })
@@ -36482,7 +36482,7 @@ Jamy.helpers = {
       templateUrl: '/assets/free_stuff.html',
     })
      .when('/', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
