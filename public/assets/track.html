@@ -1,0 +1,29 @@
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 ng-bind-html='name'></h1>
+    </div>
+  </div>
+</div>
+
+		<li class='list-unstyled' ng-repeat="track in tracks">
+			<div class="row track">
+        <div class='col-xs-1 hidden-xs'>
+  				<img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || '../assets/jamy.png'}}" class='pull-left' width='60' height="60">
+          <img ng-show="currentTrack.loading && currentTrack.id == track.track_id" class="loading" ng-show="currentTrack.loading && currentTrack.id == track.track_id" src='/assets/loading.gif' width='60' height='60' />
+        </div>
+				<div class='col-sm-10 col-xs-12 track-info'>
+          <span class="pull-right play-control">
+            <i ng-click='play(track,tracks);' ng-hide="currentTrack.isplaying && currentTrack.id == track.track_id" class='pull-right fa fa-3x fa-play'></i>
+
+            <i ng-click='pause(track)' ng-show="currentTrack.isplaying && currentTrack.id == track.track_id" class='pull-right fa fa-3x fa-pause'></i>
+          </span>
+					
+					<span class="artist">{{track.artist}}</span>
+					<a target='_blank' href="{{track.permalink_url}}" class="title">{{track.title}}</a> 
+          <p class="comments" ng-show="currentTrack.id == track.track_id">{{currentTrack.comments}}</p>
+
+				</div>
+        
+			</div>
+		</li>
