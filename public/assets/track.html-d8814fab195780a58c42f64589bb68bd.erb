@@ -5,11 +5,11 @@
     </div>
   </div>
 </div>
-
+  <div infinite-scroll='load()' infinite-scroll-distance='0'>
 		<li class='list-unstyled' ng-repeat="track in tracks">
 			<div class="row track">
         <div class='col-xs-1 hidden-xs'>
-  				<img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || '/assets/jamy.png'}}" class='pull-left' width='60' height="60">
+  				<img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || '../assets/jamy.png'}}" class='pull-left' width='60' height="60">
           <img ng-show="currentTrack.loading && currentTrack.id == track.track_id" class="loading" ng-show="currentTrack.loading && currentTrack.id == track.track_id" src='/assets/loading.gif' width='60' height='60' />
         </div>
 				<div class='col-sm-10 col-xs-12 track-info'>
@@ -22,8 +22,12 @@
 					<span class="artist">{{track.artist}}</span>
 					<a target='_blank' href="{{track.permalink_url}}" class="title">{{track.title}}</a> 
           <p class="comments" ng-show="currentTrack.id == track.track_id">{{currentTrack.comments}}</p>
-
 				</div>
-        
 			</div>
 		</li>
+    <div class="row">
+        <div class='col-xs-12'>
+          <img ng-show="loading" src="/assets/loading.gif" class="center-block" width="30" height="30"/>
+        </div>
+      </div>
+  </div>

@@ -36446,13 +36446,35 @@ Jamy.helpers = {
   app.config(function ($routeProvider) {
     $routeProvider
      .when('/latest/blogged/', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
      .when('/latest/released', {
-      templateUrl: '/assets/track.html',
-   
+      templateUrl: '/assets/track.html.erb',
+      controller: 'ReleasedCtrl',
+      controllerAs: 'trackCtrl'
+    })
+    .when('/popular', {
+      templateUrl: '/assets/track.html.erb',
+      controller: 'PopularCtrl',
+      controllerAs: 'trackCtrl'
+    })
+    .when('/about', {
+      templateUrl: '/assets/about.html',
+    })
+    .when('/free', {
+      templateUrl: '/assets/free_stuff.html',
+    })
+     .when('/', {
+      templateUrl: '/assets/track.html.erb',
+      controller: 'BloggedCtrl',
+      controllerAs: 'trackCtrl'
+    })
+    .otherwise({
+      redirectTo: '/latest/blogged'
+    });
+  });
 })();
 (function() {
 	var app = angular.module('JamyApp.services', ['JamyApp.controllers','JamyApp.initializers','JamyApp.factories']);
