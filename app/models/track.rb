@@ -7,16 +7,20 @@ class Track < ActiveRecord::Base
 
   def parse_src_into_track
     if match_track
-      track = Track.SC_client.get("/tracks/#{match_track[1]}")
-      self.track_id       = track.id
-      self.title          = track.title
-      self.artist         = track.user.username
-      self.genre          = track.genre
-      self.playcount      = track.playback_count
-      self.purchase_url   = track.purchase_url
-      self.permalink_url  = track.permalink_url
-      self.uploaded       = track.created_at
-      self.artwork_url    = track.artwork_url
+      begin
+        track = Track.SC_client.get("/tracks/#{match_track[1]}")
+        self.track_id       = track.id
+        self.title          = track.title
+        self.artist         = track.user.username
+        self.genre          = track.genre
+        self.playcount      = track.playback_count
+        self.purchase_url   = track.purchase_url
+        self.permalink_url  = track.permalink_url
+        self.uploaded       = track.created_at
+        self.artwork_url    = track.artwork_url
+      rescue => e
+        e.response
+      end
     end
   end
 
