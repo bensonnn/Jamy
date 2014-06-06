@@ -39,6 +39,11 @@
     .when('/free', {
       templateUrl: '<%= asset_path 'free_stuff.html' %>',
     })
+     .when('/', {
+      templateUrl: '<%= asset_path 'track.html' %>',
+      controller: 'BloggedCtrl',
+      controllerAs: 'trackCtrl'
+    })
     .otherwise({
       redirectTo: '/latest/blogged'
     });
