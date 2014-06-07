@@ -29,15 +29,18 @@
 
       t.play = function() {
         t.loading = true
+   
         SC.stream("/tracks/" + t.id, 
-          
           {
             ontimedcomments: function(comments){
               t.comments = comments[0].body
               $rootScope.$apply(); 
+            },
+            onload: function(status) {
+              if (status==false)
+                $rootScope.next();
             }
-          },
-                  
+          },         
           function(sound) {
             t.sound = sound;
             t.sound.play({
