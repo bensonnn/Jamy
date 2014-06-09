@@ -4,7 +4,7 @@
   app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
      .when('/latest/blogged/', {
-      templateUrl: '<%= asset_path 'track.html' %>',
+      templateUrl: '<%= asset_path 'track.html.erb' %>',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
