@@ -36333,7 +36333,7 @@ $(function() {
   app.directive('playerControls', function() {
     return {
       restrict: "E",
-      templateUrl: '/assets/player_controls.html'
+      templateUrl: '/assets/player_controls.html.erb'
     };
   });
 
@@ -36449,7 +36449,7 @@ Jamy.helpers = {
   app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
      .when('/latest/blogged/', {
-      templateUrl: '/assets/track.html.erb',
+      templateUrl: '/assets/track.html',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
