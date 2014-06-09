@@ -1,5 +1,4 @@
 Jamy::Application.routes.draw do
-  root :to => 'static_pages#index'
 
   namespace :api, defaults: {format: :json, root: :false} do 
     namespace :v1 do 
@@ -8,9 +7,10 @@ Jamy::Application.routes.draw do
       get "/popular"          => 'tracks#popular'
     end
   end
+  root :to => 'static_pages#index'
 
+  get '*path' => 'static_pages#index'
 
-  # get '*path' => "/"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
