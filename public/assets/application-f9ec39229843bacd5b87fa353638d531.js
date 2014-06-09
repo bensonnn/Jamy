@@ -36449,7 +36449,7 @@ Jamy.helpers = {
   app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
      .when('/latest/blogged/', {
-      templateUrl: '/assets/track.html',
+      templateUrl: '/assets/track.html.erb',
       controller: 'BloggedCtrl',
       controllerAs: 'trackCtrl'
     })
