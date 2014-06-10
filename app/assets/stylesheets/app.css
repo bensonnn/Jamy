@@ -81,7 +81,7 @@ h1 span {
  /*player controls*/
 #control-container {
 	position:fixed;
-	margin: 0 auto;
+	margin: 0;
 	height: 45px;
 	width: 100%;
 	bottom: 0px;
@@ -94,7 +94,7 @@ h1 span {
 
 }
 #control-container i {
-	padding: 10px;
+	padding: 8px 10px 10px 10px;
 }
 #control-container .fa:hover {
  	background-color: #272727;
