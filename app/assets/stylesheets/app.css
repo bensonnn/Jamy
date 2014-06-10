@@ -1,3 +1,6 @@
+[ng-cloak] {
+	display: none;
+}
 body {
 	color: #444;
 }
@@ -105,8 +108,8 @@ h1 span {
 	left: 5px;
 	font-size: 12px;
 	position: absolute;
-	font-weight: 600;
 	white-space: nowrap!important;
 	overflow: hidden!important;
+	font-style: normal;
 }
 
