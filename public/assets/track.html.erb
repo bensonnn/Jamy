@@ -9,7 +9,7 @@
   <li class='list-unstyled' ng-repeat="track in tracks">
     <div class="row track" ng-mouseenter="twitter = true" ng-mouseleave="twitter = false" ng-init="twitter=false">
       <div class='col-xs-1 hidden-xs'>
-        <img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || <%= asset_path 'jamy.png'%>}}" class='pull-left' width='60' height="60">
+        <img ng-hide="currentTrack.loading && currentTrack.id == track.track_id" ng-src="{{track.artwork_url || '../assets/jamy.png'}}" class='pull-left' width='60' height="60">
         <img ng-show="currentTrack.loading && currentTrack.id == track.track_id" class="loading" src='<%= asset_path 'loading.gif'%>'  width='60' height='60' />
       </div>
       <div class='col-sm-10 col-xs-12 track-info'>
