@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="JamyApp">
 <head>
-  <title>{{currentTrack.title || "Jamy"}}</title>
+  <title ng-bind="currentTrack.title || 'Jamy'">Jamy</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Jamy is a highly curated mp3 blog aggregator to bring you the latest from the music blogging community." />
@@ -57,11 +57,27 @@
     <player-controls></player-controls>
 
     <footer>
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- <p class="text-center megrim"></p><span class='orange'> &copy; </span> -->
+     <!--  <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+          <div class="navbar-text">
+            <ul class="navbar-nav list-inline">
+              <li ng-click='prev()'>
+                <a href="#">hesdfsd</a>
+              </li>
+              <li ng-click='resume()'ng-hide='currentTrack.isplaying'>
+                <a href="#"><i class="fa fa-2x fa-play" ></i></a>
+              </li>
+              <li  ng-click='pause()'ng-show='currentTrack.isplaying'>
+              <a href="#"><i class="fa fa-2x fa-pause" ></i></a>
+              </li>
+              <li ng-click='next()'>
+                <a href="#"><i class="fa fa-2x fa-fast-forward" ></i></a>
+              </li>
+             
+            </ul>
+          </div>
         </div>
-      </div>
+      </div> -->
     </footer>
 
   </div><!--container-->
